@@ -1,0 +1,37 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 2rem;
+}
+
+a img {
+    width: 8rem;
+    border-radius: 10px;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    
+}
+
+li {
+    list-style-type: none;
+    
+}  
+
+a {
+    text-decoration: none;
+    margin: 1rem;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.cart-widget-icon {
+    width: 3.5rem;
+}
