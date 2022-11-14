@@ -1,9 +1,10 @@
 import React from 'react'
+import IconSVG from './IconSVG'
 
 const CartWidget = () => {
-  return (
+return (
     <a href="./">
-        <img className='cart-widget-icon' src="./Imgs/cart.png" alt="" />
+        <IconSVG style={{ marginTop:-10, width:60 }}/>
     </a>
   )
 }
