@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import "./mybutton.css"
 
 /*--------------------------------------------------------*/
-function getDataFromDatabase() {
-  console.log('%cdata from database', 'color: lightblue')
-}
+// function getDataFromDatabase() {
+//   console.log('%cdata from database', 'color: lightblue')
+// }
 /*--------------------------------------------------------*/
 
 const MyButton = (props) => {
@@ -21,14 +21,19 @@ useEffect(
 
 
 
-function handleClick() {
-  setColorBtn('grey')
-}
+// function handleClick() {
+//   setColorBtn('grey')
+//   // props.onClick && props.onClick()
+// }
 
 const styleButton = { backgroundColor: colorBtn }
 
   return (
-    <button onClick={ () => handleClick() } style={ styleButton } className='btn'>{ props.children }</button>
+    <button 
+    onClick={ props.onClick } 
+    style={ styleButton } 
+    className='btn'>{ props.children }
+    </button>
   )
 }
 

@@ -5,7 +5,8 @@ const hamburguesas = [
       price: 700,
       imgurl: "/Imgs/Mini.png",
       description: "hamburguesa de carne",
-      category: "standard"
+      category: "standard",
+      stock: 50
     },
     {
       id: 2,
@@ -13,7 +14,8 @@ const hamburguesas = [
       price: 800,
       imgurl: "/Imgs/MiniconQueso.png",
       description: "hamburguesa de carne",
-      category: "standard"
+      category: "standard",
+      stock: 50
     },
     {
       id: 3,
@@ -21,7 +23,8 @@ const hamburguesas = [
       price: 1000,
       imgurl: "/Imgs/ClasicaSimple.png",
       description: "hamburguesa de carne",
-      category: "standard"
+      category: "standard",
+      stock: 50
     },
     {
       id: 4,
@@ -29,7 +32,8 @@ const hamburguesas = [
       price: 1200,
       imgurl: "/Imgs/ClasicaDoble.png",
       description: "hamburguesa de carne",
-      category: "standard"
+      category: "standard",
+      stock: 50
     },
     {
       id: 5,
@@ -37,7 +41,8 @@ const hamburguesas = [
       price: 1200,
       imgurl: "/Imgs/FullCheddar.png",
       description: "hamburguesa de carne",
-      category: "premium"
+      category: "premium",
+      stock: 30
     },
     {
       id: 6,
@@ -45,7 +50,8 @@ const hamburguesas = [
       price: 1200,
       imgurl: "/Imgs/BaconFull.png",
       description: "hamburguesa de carne",
-      category: "premium"
+      category: "premium",
+      stock: 30 
     },
     {
       id: 7,
@@ -53,7 +59,8 @@ const hamburguesas = [
       price: 1200,
       imgurl: "/Imgs/TuttitaSimple.png",
       description: "hamburguesa de carne",
-      category: "premium"
+      category: "premium",
+      stock: 30
     },
     {
       id: 8,
@@ -61,7 +68,8 @@ const hamburguesas = [
       price: 1500,
       imgurl: "/Imgs/TuttitaSuperDoble.png",
       description: "hamburguesa de carne",
-      category: "premium"
+      category: "premium",
+      stock: 30
     },
     {
       id: 9,
@@ -69,7 +77,8 @@ const hamburguesas = [
       price: 1800,
       imgurl: "/Imgs/TuttitaSuperTriple.png",
       description: "hamburguesa de carne",
-      category: "premium"
+      category: "premium",
+      stock: 30
     }
   ]
 

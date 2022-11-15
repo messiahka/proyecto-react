@@ -1,29 +1,31 @@
-import React from 'react';
+import React from "react";
+import MyButton from "../MyButton/MyButton";
 
-function ItemCount(props) {
-
-  const [count, setCount] = React.useState(props.initialItem);
+function ItemCount({stock, onAddToCart}) {
+  const [count, setCount] = React.useState(1);
 
   function handleSuma() {
-    if (count < props.stock) {
+    if (count < stock) {
       setCount(count + 1);
     }
   }
 
   function handleResta() {
-   if (count > 1) {
-    setCount(count - 1);
-   }
+    if (count > 1) {
+      setCount(count - 1);
+    }
   }
+
   
 
   return (
     <div>
-      <button onClick={ handleResta } >-</button>
+      <MyButton onClick={handleResta}>-</MyButton>
       <span>{count}</span>
-      <button onClick={ handleSuma } >+</button>
+      <MyButton onClick={handleSuma}>+</MyButton>
       <br />
-      <button>{ props.title }</button>
+      {/*3. agregar un onClick con el evento recivido por Props */}
+      <MyButton onClick={()=>onAddToCart(count)}>Agregar al Carrito</MyButton>
     </div>
   );
 }
