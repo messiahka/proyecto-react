@@ -1,8 +1,6 @@
 nav {
     display: flex;
     justify-content: space-between;
-    width: 90%;
-    margin-top: 2rem;
     background-color: #000;
 }
 
@@ -20,6 +18,8 @@ ul {
 
 li {
     list-style-type: none;
+    display: flex;
+    margin-top: 1.5em;
     
 }  
 
@@ -27,6 +27,7 @@ a {
     text-decoration: none;
     margin: 1rem;
     color: #fff;
+    font-size: 1.5em;
 }
 
 a:hover {

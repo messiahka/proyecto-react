@@ -4,9 +4,11 @@ import NavBar from "./components/NavBar/NavBar";
 import ItemDetailContainer from "./components/ItemDetail/ItemDetailContainer";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartContextProvider } from "./context/cartContext";
 
 function App() {
   return (
+    <CartContextProvider>
     <BrowserRouter>
       <NavBar />
       <Routes>
@@ -16,6 +18,7 @@ function App() {
         <Route path="*" element={ <h1>Esta Pagina no Existe</h1>} />
       </Routes>
     </BrowserRouter>
+    </CartContextProvider>
   );
 }
 

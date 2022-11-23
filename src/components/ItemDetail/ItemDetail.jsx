@@ -1,12 +1,16 @@
 import "./itemdetail.css";
 import ItemCount from "../ItemCount/ItemCount"
+import { useContext } from "react"
+import { cartContext } from "../../context/cartContext"
 
 
 function ItemDetail({ hamburguesa }) {
   // 1. declarar un handler al evento
   // 4. recibir por parametro la respuesta de itemCount
+  const { addToCart } = useContext(cartContext)
   function onAddToCart(count) {
     alert(`Agregaste ${count} items al carrito`)
+    addToCart(hamburguesa, count)
   }
 
   return (
