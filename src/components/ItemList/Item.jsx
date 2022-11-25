@@ -4,17 +4,18 @@ import ToggleButton from '../ToggleButton/ToggleButton'
 import './item.css'
 import { Link } from 'react-router-dom'
 
-const Item = ({ imgurl, name, price, color, id }) => {
+const Item = ({ imgurl, name, price, color, id, discount }) => {
   const urlDetail = `/detail/${id}`
   return (
     <div className='card'>
-      <ToggleButton icon="♥" />
+      <ToggleButton />
         <div className='card-img'>
         <img src={imgurl} alt={name}/>
         </div>
         <div className='card-detail'>
-        <h3>{name}</h3>
-        <p>${price}</p>
+        <h2>{name}</h2>
+        <p className='priceTag'>${price}</p>
+        { discount && <small>Descuento: {discount}</small>}
         </div>
 
         <Link to={urlDetail}>

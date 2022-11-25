@@ -14,11 +14,11 @@ function ItemDetail({ hamburguesa }) {
   }
 
   return (
-    <div className="card-detail">
-      <div className="card-detail_img">
+    <div className="card-detail2">
+      <div className="card-detail2_img">
         <img src={hamburguesa.imgurl} alt="Hamburguesa img" />
       </div>
-      <div className="card-detail_detail">
+      <div className="card-detail2_detail">
         <h2>{hamburguesa.name}</h2>
         <p>{hamburguesa.description}</p>
         <h4 className="priceTag">$ {hamburguesa.price}</h4>

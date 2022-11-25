@@ -2,15 +2,21 @@ import React, { useState, useEffect } from "react";
 import { getSingleItem } from "../../services/mockService";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import "./itemdetailcontainer.css"
+import Loader from "../Loaders/Loader";
 
 const ItemDetailContainer = () => {
   const [hamburguesa, setHamburguesa] = useState([]);
- const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true)
+  const { id } = useParams();
 
   async function getItemsAsync() {
     try {
-      let respuesta = await getSingleItem(id);
-      setHamburguesa(respuesta);
+      let respuesta = getSingleItem(id).then( respuesta => {
+        setHamburguesa(respuesta);
+        setIsLoading(false);
+      });
+      
     } catch (errorMsg) {
       console.log(errorMsg);
     }
@@ -20,11 +26,10 @@ const ItemDetailContainer = () => {
     getItemsAsync();
   }, []);
 
+  if(isLoading)
+  return (<Loader />);
+
   return (
-    // <div className="item-list">
-    //   <h3>{hamburguesa.name}</h3>
-    //   <img src={hamburguesa.imgurl} />
-    // </div>
     <ItemDetail hamburguesa={hamburguesa} />
   );
 };

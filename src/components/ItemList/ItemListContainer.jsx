@@ -4,10 +4,14 @@ import getItems from "../../services/mockService";
 import "./itemlistcontainer.css"
 
 import { useParams } from "react-router-dom"
+import Itemlist from "./itemlist";
+import Loader from "../Loaders/Loader";
 
 const ItemListContainer = () => {
-  const [hamburguesas, setHamburguesas] = useState([]);
+  const [hamburguesas, setHamburguesas] = useState(null);
   const { idCategory } = useParams()
+
+  
 
   async function getItemsAsync() {
     try {
@@ -20,23 +24,17 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     getItemsAsync();
+    return () => {
+      console.log('Componente Desmontado')
+    }
   }, [idCategory]);
 
-  return (
-    <div className="item-list">
-      {hamburguesas.map((item) => {
-        return (
-          <Item
-            key={item.id}
-            id={item.id}
-            imgurl={item.imgurl}
-            name={item.name}
-            price={item.price}
-          />
-        );
-      })}
-    </div>
-  );
+  return <> {
+    hamburguesas 
+      ? <Itemlist hamburguesas={hamburguesas} /> 
+      : <Loader />
+  }
+  </>
 };
 
 export default ItemListContainer;

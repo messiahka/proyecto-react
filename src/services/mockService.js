@@ -5,13 +5,13 @@ function getItems(idCategoryParam) {
     if (idCategoryParam === undefined) {
       setTimeout(() => {
         resolve(hamburguesas);
-      }, 1000);
+      }, 2000);
     }
     else {
       setTimeout(() => {
         let itemsRequested = hamburguesas.filter( (item) => item.category === idCategoryParam)
         resolve(itemsRequested);
-      }, 1000); 
+      }, 2000); 
     }
   });
 }
@@ -23,7 +23,7 @@ export function getSingleItem(idParam) {
     );
     setTimeout(() => {
       resolve(itemRequested);
-    }, 1000);
+    }, 2000);
   });
 }
 

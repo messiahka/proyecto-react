@@ -10,7 +10,11 @@ function ToggleButton(props) {
   let classNameFavBtn = isFavorite ? "card-favicon favorite" : "card-favicon";
   return (
     <button onClick={handleFavorite} className={classNameFavBtn}>
-      {props.icon}
+      <div className='large-font text-center top-20'>
+        <ion-icon name="heart">
+          <div className='red-bg'></div>
+        </ion-icon>
+      </div>
     </button>
   );
 }
