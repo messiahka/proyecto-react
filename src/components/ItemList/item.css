@@ -40,6 +40,10 @@
     cursor: pointer;
   } */
 
+  .card-detail {
+    min-height: 140px;
+  }
+
   .card-detail h2, p {
     display: flex;
     justify-content: center;

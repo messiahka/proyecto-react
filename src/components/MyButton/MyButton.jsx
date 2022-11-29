@@ -9,7 +9,7 @@ import "./mybutton.css"
 
 const MyButton = (props) => {
 
-const [ colorBtn, setColorBtn ] = useState(props.color);
+const [ colorBtn, setColorBtn ] = useState(props.colorBtn);
 
 console.log('%cRender del componente', 'color: red');
 
@@ -26,12 +26,12 @@ useEffect(
 //   // props.onClick && props.onClick()
 // }
 
-const styleButton = { backgroundColor: colorBtn }
+
 
   return (
     <button 
     onClick={ props.onClick } 
-    style={ styleButton } 
+    style={ {backgroundColor: colorBtn} } 
     className='btn'>{ props.children }
     </button>
   )

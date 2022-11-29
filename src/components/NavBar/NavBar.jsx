@@ -19,10 +19,10 @@ const NavBar = () => {
           <li>
             <Link to="/category/premium">Premium</Link>
           </li>
-          <li>
-            <CartWidget />
-          </li>
-        </ul>
+            <li>
+              <CartWidget />
+            </li>
+          </ul>
       </nav>
     </>
   );

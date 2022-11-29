@@ -1,15 +1,18 @@
 import "./itemdetail.css";
 import ItemCount from "../ItemCount/ItemCount"
-import { useContext } from "react"
+import { useContext, useState } from "react"
 import { cartContext } from "../../context/cartContext"
+import MyButton from "../MyButton/MyButton";
+import { Link } from "react-router-dom";
 
 
 function ItemDetail({ hamburguesa }) {
   // 1. declarar un handler al evento
   // 4. recibir por parametro la respuesta de itemCount
+  const [isInCart, setIsInCart] = useState(false)
   const { addToCart } = useContext(cartContext)
   function onAddToCart(count) {
-    alert(`Agregaste ${count} items al carrito`)
+    setIsInCart(count)
     addToCart(hamburguesa, count)
   }
 
@@ -23,7 +26,16 @@ function ItemDetail({ hamburguesa }) {
         <p>{hamburguesa.description}</p>
         <h4 className="priceTag">$ {hamburguesa.price}</h4>
         {/* 2. pasamos como prop el evento al itemcount */}
-        <ItemCount onAddToCart={onAddToCart} stock={hamburguesa.stock}/>
+        {
+          isInCart ?
+          <Link to="/cart">
+            <MyButton>Ir al Carrito</MyButton>
+          </Link>
+          :
+          <ItemCount onAddToCart={onAddToCart} stock={hamburguesa.stock}/>
+        }
+        
+        
       </div>
     </div>
   );

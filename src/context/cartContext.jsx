@@ -50,9 +50,10 @@ export function CartContextProvider(props) {
   //   /*vaciar el estado */
   // }
 
-  // function removeItem(id) {
-  //   /* filter */ filtrar los items con un ID diferente 01:42 del video
-  // }
+  function removeItem(id) {
+    //filter
+    console.log("eliminando item. . .")
+  }
 
   // function priceInCart() {
   //   /*Calcular el costo total de la compra */
@@ -63,7 +64,7 @@ export function CartContextProvider(props) {
 
   
   return (
-    <ContextProvider value ={ {saludoContext, itemsInCart, addToCart} }>
+    <ContextProvider value ={ {cart,removeItem, saludoContext, itemsInCart, addToCart} }>
       {props.children}
     </ContextProvider>
   );
