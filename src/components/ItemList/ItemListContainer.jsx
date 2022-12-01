@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Item from "./Item";
-import getItems  from "../../services/firestore";
+import getItems, { getItemsByCategory }  from "../../services/firestore";
 import "./itemlistcontainer.css"
 
 import { useParams } from "react-router-dom"
@@ -14,19 +14,18 @@ const ItemListContainer = () => {
   
 
   async function getItemsAsync() {
-    try {
-      let respuesta = await getItems(idCategory);
-      setHamburguesas(respuesta);
-    } catch (errorMsg) {
-      console.log(errorMsg);
+    if ( !idCategory ) {
+      let respuesta = await getItems();
+      setHamburguesas(respuesta)
+    } 
+    else {
+      let respuesta = await getItemsByCategory(idCategory)
+      setHamburguesas(respuesta)
     }
   }
 
   useEffect(() => {
     getItemsAsync();
-    return () => {
-      console.log('Componente Desmontado')
-    }
   }, [idCategory]);
 
   return <> {

@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import { getFirestore, collection, getDocs } from "firebase/firestore"
+import { getFirestore, collection, getDocs, doc, getDoc, query, where } from "firebase/firestore"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -23,9 +23,9 @@ const DB = getFirestore(app)
 //1. Traer todos los documentos
 export default async function getItems() {
   //1.a Referenciamos nuestra colección
-  const colectionProductsRef = collection(DB, "hamburguesas")
+  const collectionProductsRef = collection(DB, "hamburguesas")
   //1.b Solicitamos todos los documentos de la colección
-  const documentSnapshot = await getDocs(colectionProductsRef);
+  const documentSnapshot = await getDocs(collectionProductsRef);
   
   const documentsData = documentSnapshot.docs.map( doc => {
     // let docDataWithId = doc.data();
@@ -41,4 +41,34 @@ export default async function getItems() {
 }
 
 //2. Traer un documento por ID
+export async function getSingleItem(idParams) {
+  
+
+const docRef = doc(DB, "hamburguesas", idParams)
+
+const docSnapshot = await getDoc(docRef);
+
+return {
+  ...docSnapshot.data(),
+  id: docSnapshot.id
+}
+
+
+}
 //3. Traer todos los documentos segun categoria
+export async function getItemsByCategory(categoryParams) {
+  const collectionRef = collection(DB,"hamburguesas");
+
+  const queryCat = query(collectionRef, where("category", "==", categoryParams))
+
+  const documentSnapshot = await getDocs(queryCat);
+
+  const documentsData = documentSnapshot.docs.map((doc) => {
+    return {
+      ...doc.data(),
+      id: doc.id
+    }
+  })
+
+  return documentsData;
+}
