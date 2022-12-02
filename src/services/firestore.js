@@ -78,3 +78,101 @@ export async function createOrder(order) {
   const docOrder = await addDoc(collectionRef, order);
   return docOrder.id
 }
+
+export async function exportArrayToFirestore() {
+  const hamburguesas = [
+    {
+      id: 1,
+      name: "Mini",
+      price: 700,
+      discount: "20%",
+      imgurl: "/Imgs/Mini.png",
+      description: "hamburguesa de carne",
+      category: "standard",
+      stock: 50
+    },
+    {
+      id: 2,
+      name: "Mini Con Queso",
+      price: 800,
+      discount: "25%",
+      imgurl: "/Imgs/MiniconQueso.png",
+      description: "hamburguesa de carne",
+      category: "standard",
+      stock: 50
+    },
+    {
+      id: 3,
+      name: "Familiar Clásica",
+      price: 1000,
+      imgurl: "/Imgs/ClasicaSimple.png",
+      description: "hamburguesa de carne",
+      category: "standard",
+      stock: 50
+    },
+    {
+      id: 4,
+      name: "Familiar Doble",
+      price: 1200,
+      imgurl: "/Imgs/ClasicaDoble.png",
+      description: "hamburguesa de carne",
+      category: "standard",
+      stock: 50
+    },
+    {
+      id: 5,
+      name: "Torre de Queso",
+      price: 1200,
+      imgurl: "/Imgs/FullCheddar.png",
+      description: "hamburguesa de carne",
+      category: "premium",
+      stock: 30
+    },
+    {
+      id: 6,
+      name: "Bacon Extremo",
+      price: 1200,
+      imgurl: "/Imgs/BaconFull.png",
+      description: "hamburguesa de carne",
+      category: "premium",
+      stock: 30 
+    },
+    {
+      id: 7,
+      name: "Tuttita Simple",
+      price: 1200,
+      imgurl: "/Imgs/TuttitaSimple.png",
+      description: "hamburguesa de carne",
+      category: "premium",
+      stock: 30
+    },
+    {
+      id: 8,
+      name: "Tuttita Doble",
+      price: 1500,
+      imgurl: "/Imgs/TuttitaSuperDoble.png",
+      description: "hamburguesa de carne",
+      category: "premium",
+      stock: 30
+    },
+    {
+      id: 9,
+      name: "Tuttita Triple",
+      price: 1800,
+      imgurl: "/Imgs/TuttitaSuperTriple.png",
+      description: "hamburguesa de carne",
+      category: "premium",
+      stock: 30
+    }
+  ]
+
+   const collectionRef = collection(DB, "hamburguesas")
+
+  // for...of
+  for (let item of hamburguesas) {
+    item.index = item.id
+    delete(item.id)
+    let docOrder = await addDoc(collectionRef, item);
+    console.log("Documento Creado, id:", docOrder.id )
+  }
+}
