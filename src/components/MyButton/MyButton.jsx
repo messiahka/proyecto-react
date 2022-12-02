@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import "./mybutton.css"
+import React, { useState } from "react";
+import "./mybutton.css";
 
 /*--------------------------------------------------------*/
 // function getDataFromDatabase() {
@@ -8,33 +8,30 @@ import "./mybutton.css"
 /*--------------------------------------------------------*/
 
 const MyButton = (props) => {
+  const [colorBtn, setColorBtn] = useState(props.colorBtn);
 
-const [ colorBtn, setColorBtn ] = useState(props.colorBtn);
+  // console.log('%cRender del componente', 'color: red');
 
-console.log('%cRender del componente', 'color: red');
+  // useEffect(
+  //  () => {
+  //    console.log('Component Mounting')
+  //  },
+  //  []);
 
-useEffect(
- () => {
-   console.log('Component Mounting')
- },
- []);
-
-
-
-// function handleClick() {
-//   setColorBtn('grey')
-//   // props.onClick && props.onClick()
-// }
-
-
+  // function handleClick() {
+  //   setColorBtn('grey')
+  //   // props.onClick && props.onClick()
+  // }
 
   return (
-    <button 
-    onClick={ props.onClick } 
-    style={ {backgroundColor: colorBtn} } 
-    className='btn'>{ props.children }
+    <button
+      onClick={props.onClick}
+      style={{ backgroundColor: colorBtn }}
+      className="btn"
+    >
+      {props.children}
     </button>
-  )
-}
+  );
+};
 
-export default MyButton
+export default MyButton;

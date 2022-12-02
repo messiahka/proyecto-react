@@ -55,16 +55,19 @@ export function CartContextProvider(props) {
     console.log("eliminando item. . .")
   }
 
-  // function priceInCart() {
-  //   /*Calcular el costo total de la compra */
-  // }
+  function priceInCart() {
+    /*Calcular el costo total de la compra */
+    let totalPrice = 0;
+    cart.forEach((itemInCart) => (totalPrice = totalPrice + (itemInCart.price*itemInCart.count)))
+    return totalPrice;
+  }
   // function alreadyInCart(id) {
   //   /*return true/false */
   // }
 
   
   return (
-    <ContextProvider value ={ {cart,removeItem, saludoContext, itemsInCart, addToCart} }>
+    <ContextProvider value ={ {cart,removeItem, saludoContext, itemsInCart, priceInCart, addToCart} }>
       {props.children}
     </ContextProvider>
   );

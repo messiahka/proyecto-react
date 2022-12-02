@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import { getFirestore, collection, getDocs, doc, getDoc, query, where } from "firebase/firestore"
+import { getFirestore, collection, getDocs, doc, getDoc, query, where, addDoc } from "firebase/firestore"
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -71,4 +71,10 @@ export async function getItemsByCategory(categoryParams) {
   })
 
   return documentsData;
+}
+  //4, Enviar la orden a Firebase
+export async function createOrder(order) {
+  const collectionRef = collection(DB, "orders");
+  const docOrder = await addDoc(collectionRef, order);
+  return docOrder.id
 }
