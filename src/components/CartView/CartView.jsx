@@ -1,33 +1,30 @@
 import React, { useContext } from "react";
 import { cartContext } from "../../context/cartContext";
-import { createOrder, exportArrayToFirestore } from "../../services/firestore";
+import { createOrder } from "../../services/firestore";
 import { useNavigate } from "react-router-dom";
 import MyButton from "../MyButton/MyButton";
+import CartForm from "./CartForm";
 
 function CartView() {
   const { cart, removeItem, clear, priceInCart } = useContext(cartContext);
   let navigate = useNavigate();
 
-  function handleExport() {
-    exportArrayToFirestore();
-  }
+  // function handleExport() {
+  //   exportArrayToFirestore();
+  // }
 
   if (cart.length === 0)
     return (
       <>
         <h1>Carrito Vacio</h1>
-        <button onClick={handleExport}>Borrenme despues pls</button>
+        
       </>
     );
 
-  async function handleCheckout(evt) {
+  async function handleCheckout(evt, data) {
     // Crear nuestro objeto "orden de compra"
     const order = {
-      buyer: {
-        name: "Juan Pablo",
-        email: "tuttirodriguez@gmai.com",
-        phone: "3442545556",
-      },
+      buyer: data,
       items: cart,
       total: 0,
       date: new Date(),
@@ -54,9 +51,8 @@ function CartView() {
           </MyButton>
         </div>
       ))}
-      <MyButton colorBtn="green" onClick={handleCheckout}>
-        Finalizar Compra
-      </MyButton>
+      <CartForm onSubmit={handleCheckout}/>
+      
       <MyButton>Vaciar Carrito</MyButton>
     </div>
   );
