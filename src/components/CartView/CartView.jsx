@@ -4,6 +4,7 @@ import { createOrder } from "../../services/firestore";
 import { useNavigate } from "react-router-dom";
 import MyButton from "../MyButton/MyButton";
 import CartForm from "./CartForm";
+import "./cartview.css";
 
 function CartView() {
   const { cart, removeItem, clear, priceInCart } = useContext(cartContext);
@@ -26,7 +27,7 @@ function CartView() {
     const order = {
       buyer: data,
       items: cart,
-      total: 0,
+      total: priceInCart(),
       date: new Date(),
     };
     const orderId = await createOrder(order);
@@ -42,7 +43,8 @@ function CartView() {
   return (
     <div className="cart-container">
       {cart.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className="cart-item">
+          <img src={item.imgurl} alt={item.name} />
           <h2>{item.name}</h2>
           <h4>${item.price}</h4>
           <h4>unidades: {item.count}</h4>

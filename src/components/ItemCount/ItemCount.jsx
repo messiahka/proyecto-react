@@ -1,7 +1,8 @@
 import React from "react";
 import MyButton from "../MyButton/MyButton";
+import "./itemcount.css"
 
-function ItemCount({stock, onAddToCart}) {
+function ItemCount({ stock, onAddToCart }) {
   const [count, setCount] = React.useState(1);
 
   function handleSuma() {
@@ -16,16 +17,20 @@ function ItemCount({stock, onAddToCart}) {
     }
   }
 
-  
-
   return (
     <div>
-      <MyButton onClick={handleResta}>-</MyButton>
-      <span>{count}</span>
-      <MyButton onClick={handleSuma}>+</MyButton>
-      <br />
+      <div className="itemcount_container">
+        <MyButton onClick={handleResta}>-</MyButton>
+        <span>{count}</span>
+        <MyButton onClick={handleSuma}>+</MyButton>
+      </div>
+
       {/*3. agregar un onClick con el evento recivido por Props */}
-      <MyButton onClick={()=>onAddToCart(count)}>Agregar al Carrito</MyButton>
+      <div className="itemcount_btn">
+        <MyButton onClick={() => onAddToCart(count)}>
+          Agregar al Carrito
+        </MyButton>
+      </div>
     </div>
   );
 }

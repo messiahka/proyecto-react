@@ -11,7 +11,7 @@
   
   .card-detail2{
     margin: 40px auto;
-    min-height: 600px;
+    min-height: 625px;
     width: 90%;
     min-width: 11em;
     max-width: 45em;
@@ -24,10 +24,22 @@
     cursor: pointer;
   }
 
-  .card-detail2 h3, p {
+  .card-detail2 h2 {
     display: flex;
     justify-content: center;
     margin: 10px;
+    font-size: 2em;
+  }
+
+  .card-detail2 p {
+    font-size: 1.3em;
+  }
+
+  .card-detail2 h4 {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    font-size: 1.5em;
   }
   
   

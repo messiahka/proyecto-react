@@ -1,0 +1,17 @@
+.itemcount_container {
+    display: flex;
+    justify-content: center;
+}
+
+.itemcount_btn {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5em;
+    height: 4em;
+    font-size: 1em;
+}
+
+span {
+    margin-top: 0.25em;
+    font-size: 1.2em;
+}
