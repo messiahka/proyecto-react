@@ -33,6 +33,7 @@ function CartView() {
     const orderId = await createOrder(order);
 
     navigate(`/thankyou/${orderId}`);
+    clear()
     //
     //1. Hacer un rendering condicional -> guardamos el id en un State
     //2. Sweet Alert/Notificacion -> mostrando el id
@@ -55,7 +56,7 @@ function CartView() {
       ))}
       <CartForm onSubmit={handleCheckout}/>
       
-      <MyButton>Vaciar Carrito</MyButton>
+      <MyButton onClick={() => clear()}>Vaciar Carrito</MyButton>
     </div>
   );
 }

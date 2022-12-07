@@ -46,12 +46,14 @@ export function CartContextProvider(props) {
     return total;
   }
 
-  // function clear() {
-  //   /*vaciar el estado */
-  // }
+  function clear() {
+    /*vaciar el estado */
+    setCart([])
+  }
 
   function removeItem(id) {
     //filter
+    setCart(cart.filter (hamburguesa => hamburguesa.id !== id))
     console.log("eliminando item. . .")
   }
 
@@ -63,11 +65,11 @@ export function CartContextProvider(props) {
   }
   // function alreadyInCart(id) {
   //   /*return true/false */
-  // }
+  // } 
 
   
   return (
-    <ContextProvider value ={ {cart,removeItem, saludoContext, itemsInCart, priceInCart, addToCart} }>
+    <ContextProvider value ={ {cart, clear, removeItem, saludoContext, itemsInCart, priceInCart, addToCart} }>
       {props.children}
     </ContextProvider>
   );
