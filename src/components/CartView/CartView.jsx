@@ -55,8 +55,10 @@ function CartView() {
         </div>
       ))}
       <CartForm onSubmit={handleCheckout}/>
-      
+      <div className="empty-cart">
       <MyButton onClick={() => clear()}>Vaciar Carrito</MyButton>
+      </div>
+      
     </div>
   );
 }

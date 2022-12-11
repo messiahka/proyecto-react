@@ -1,6 +1,7 @@
 // Inicio del código
 import React, { useState } from "react";
 import MyButton from "../MyButton/MyButton";
+import "./cartform.css";
 
 export default function CartForm(props) {
   const [data, setData] = useState({ 
@@ -25,7 +26,7 @@ export default function CartForm(props) {
   }
 
   return (
-      <form onSubmit={onSubmit} >
+      <form onSubmit={onSubmit}>
           {/* Podriamos convertir los inputs en Componentes */}
           <div style={{ display: "flex", marginBottom: 8 }}>
             <label htmlFor="name" style={{  width: "100px",marginRight: 4 }}>Nombre</label>

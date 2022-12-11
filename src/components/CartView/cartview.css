@@ -30,3 +30,7 @@
     object-fit: contain;
     max-width: 140px;
   }
+
+  .empty-cart {
+    margin-left: 35em;
+  }
